@@ -3,9 +3,22 @@
 import unittest
 from functions.get_files_info import get_files_info
 from functions.get_file_content import get_file_content
+from functions.write_file import write_file
 
 class TestAgent(unittest.TestCase):
-    def test_get_file_contents_main(self):
+    def test_get_file_contents_lorem(self):
+        print("Result for main.py:")
+        print(f'{write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum")}\n')
+
+    def test_get_file_contents_morelorem(self):
+        print("Result for main.py:")
+        print(f'{write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")}\n')
+
+    def test_get_file_contents_temp(self):
+        print("Result for main.py:")
+        print(f'{write_file("calculator", "/tmp/temp.txt", "this should not be allowed")}\n')
+
+    """def test_get_file_contents_main(self):
         print("Result for main.py:")
         print(f'{get_file_content("calculator", "main.py")}\n')
 
@@ -17,7 +30,7 @@ class TestAgent(unittest.TestCase):
         print("Result for /bin/cat:")
         print(f'{get_file_content("calculator", "/bin/cat")}\n')
 
-    """def test_get_file_contents_lorem(self):
+    def test_get_file_contents_lorem(self):
         print("Result for lorem.txt:")
         print(f'{get_file_content("calculator", "lorem.txt")}\n')
 
